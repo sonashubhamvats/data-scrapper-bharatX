@@ -39,8 +39,8 @@
 12.	We need to first transliterate it into English and then we refine and consolidate our data.
 13.	Once we have our data(name , husband/father name) regarding the people living in that area we can execute our algorithm to print the family tree of the person.
 ## Running the application:
-•	Move to the pyScript directory(V IMP) in the project and start the program by running index.py
-•	I would recommend for testing purposes to only input the following inputs into the API , as these are the tested inputs which would surely return a satisfactory       family tree.<br><br>
+- Move to the pyScript directory(V IMP) in the project and start the program by running index.py
+- I would recommend for testing purposes to only input the following inputs into the API , as these are the tested inputs which would surely return a satisfactory       family tree.<br><br>
   For UP-<br>
   ```json
   {
@@ -71,7 +71,7 @@
     "assembly_const":"BALAGHAT"
   }
   ```
-•	The "manually_input_captcha": property in the request body is set to true by default , this enables the user to input the captcha manually within 15 seconds otherwise to automate the captcha bypassing process(although it is not that accurate) set the "manually_input_captcha": as true.
+- The "manually_input_captcha": property in the request body is set to true by default , this enables the user to input the captcha manually within 15 seconds otherwise to automate the captcha bypassing process(although it is not that accurate) set the "manually_input_captcha": as true.
 
 ## Drawbacks:
 - NLP and transliteration takes the maximum amount of time as I am using an external package. Sometimes the whole process can take more than 5 min.
