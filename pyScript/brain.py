@@ -28,6 +28,11 @@ def extract_details(constituency_number,assembly_number,state):
     assembly_number=assembly_number.split(' ')[-1]
     options = webdriver.ChromeOptions()
     path = os.getcwd()
+
+    newpath = r'../testElectoralRoll' 
+    if not os.path.exists(newpath):
+        os.makedirs(newpath)
+    
     parent_dir = os.path.abspath(os.path.join(path, os.pardir))
     dir = [x[0] for x in os.walk(parent_dir)]
     options.add_experimental_option('prefs', {

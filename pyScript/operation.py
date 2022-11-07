@@ -10,6 +10,7 @@ import os
 import time
 pytesseract.pytesseract.tesseract_cmd ='../Tesseract-OCR/tesseract.exe'
 
+# renaming the file name to test-main.pdf
 def tiny_file_rename(newname, folder_of_download, time_to_wait=60):
     time_counter = 0
     filename = max([f for f in os.listdir(folder_of_download)], key=lambda xa :   os.path.getctime(os.path.join(folder_of_download,xa)))
@@ -62,6 +63,7 @@ def refine_format(txt):
 #get a larger dataset of all the pages in the file
 def get_info_about_all():
     print("Changing the name of the file...")
+    
     tiny_file_rename("test-main.pdf", '../testElectoralRoll')
     time.sleep(3)
     pages = convert_from_path('../testElectoralRoll/test-main.pdf', grayscale=True)
@@ -73,6 +75,7 @@ def get_info_about_all():
         p_3=np.array(pages[j])
 
         # detecting the lines in the image
+        print('Detecting lines for page no - ',j)
         low_threshold = 100
         high_threshold = 200
         edges = cv2.Canny(p_3, low_threshold, high_threshold)
@@ -87,6 +90,7 @@ def get_info_about_all():
 
         # Run Hough on edge detected image
         # Output "lines" is an array containing endpoints of detected line segments
+        print('HoughLines Transform for page no - ',j)
         lines = cv2.HoughLinesP(edges, rho, theta, threshold, np.array([]),
                             min_line_length, max_line_gap)
         for line in lines:
@@ -94,18 +98,22 @@ def get_info_about_all():
                 cv2.line(line_image,(x1,y1),(x2,y2),(255,0,0),5)
 
         cnt, h = cv2.findContours(line_image,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-
+        print('Iterating through contours in - ',j)
         for i in range(len(cnt)):
             area = cv2.contourArea(cnt[i])
             if(area>10000 and area<100000):
                 x,y,w,h = cv2.boundingRect(cnt[i])
+                print('Processing contour ',i)
                 crop= p_3[ y:h+y,x:w+x]
                 data = Image.fromarray(crop)
                 text = pytesseract.image_to_string(data, lang="hin")
                 info=refine_format(text)
                 consolidated_info.append(info)
+                print('Processing done for contour ',i)
         print('Processing done for page no - ', j)
+
     os.remove("../testElectoralRoll/test-main.pdf")
+    os.removedirs("../testElectoralRoll")
     return consolidated_info
 
 

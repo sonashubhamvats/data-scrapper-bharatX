@@ -4,7 +4,7 @@ from flask import Flask, jsonify ,request , json
 #constants
 app=Flask(__name__)
 
-@app.route('/get_family_tree',methods=['POST'])
+@app.route('/get_family_tree')
 def get_family_tree():
     name_of_the_voter=request.json['name_of_the_voter']
     kin_name_voter=request.json['kin_name_voter']

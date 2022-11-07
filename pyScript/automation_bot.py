@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import sys
+import os
 import time
 from twocaptcha import TwoCaptcha
 
@@ -22,6 +23,7 @@ state=""
 district=""
 assembly_const=""
 manually_input_captcha=False
+time_out_for_download=10
 
 def set_the_constants(n_v,k_v,if_dob,dob,a,
                         g_p,s,d,a_c,m_i_c):
@@ -253,7 +255,7 @@ def open_MP_electoral_roll(p_n,a_n,driver):
                 By.TAG_NAME,'a'
             )
             driver.execute_script('arguments[0].click()', td_a)
-            time.sleep(10)
+            time.sleep(time_out_for_download)
             break
         except:
             print('Wrong captcha at MP')
@@ -337,14 +339,16 @@ def open_UP_electoral_roll(part_number,driver):
         submit_button=driver.find_element(By.XPATH,'//*[@id="ctl00_ContentPlaceHolder1_Button1"]')
         driver.execute_script('arguments[0].click()', submit_button)
         try:
-            WebDriverWait(driver, 5).until(EC.alert_is_present(),
+            WebDriverWait(driver, 3).until(EC.alert_is_present(),
                                             'Timed out waiting for PA creation ' +
                                             'confirmation popup to appear.')
             alert = driver.switch_to.alert
             alert.accept()
             print("alert accepted")
         except:
+            time.sleep(time_out_for_download-3)
             break
+
 
 
 
