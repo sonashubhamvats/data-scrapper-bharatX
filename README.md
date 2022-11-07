@@ -84,5 +84,5 @@
 - Further image processing on the cell snips of the electoral sheets can increase the accuracy levels in the results of our application.
 
 ## Demonstration video
-- <a href=''>Video-link-1</a>
-- <a href=''>Video-link-2</a>
+- <a href='https://drive.google.com/file/d/1gNidlDDI7LrFHj6bj69CBB4vIDzHU9SP/view?usp=sharing'>Video-link-1</a>
+- <a href='https://drive.google.com/file/d/14Y5hhS4EaJeRoQkl54a4zFUj4PIQZFEh/view?usp=sharing'>Video-link-2</a>
