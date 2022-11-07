@@ -10,7 +10,7 @@
   * This is the file which aids us in doing the NLP in this project-<br> 
   * Go to this <a href='https://drive.google.com/file/d/1251VS1n8pqwK0sEQGqHw1VlzrEVarPlE/view?usp=share_link'>link</a> and download the zip file.
   * Unzip the file in the base directory of the folder<br>
-    ![image](https://user-images.githubusercontent.com/66525380/200199500-8d90e876-11c0-4430-867b-1a2d7704dbee.png)
+    ![image](https://user-images.githubusercontent.com/66525380/200206134-9d8ee38d-d72d-4c9f-b34a-2cd36e4e69cd.png)
 
 ## What the app uses:
 * The app is built using python.
