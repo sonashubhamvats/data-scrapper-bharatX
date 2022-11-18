@@ -1,4 +1,4 @@
-# data-scrapper-bharatX
+# family-tree-generator
 ## Requirements:
 * Installing all the packages:
   * Navigate to the base directory of the project and execute:<br>
