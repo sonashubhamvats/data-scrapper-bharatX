@@ -10,7 +10,7 @@ from twocaptcha import TwoCaptcha
 
 
 # to be hidden
-API_KEY="2343ba7a304948ac4dd678b7ca0505cf"
+API_KEY=""
 
 #constants that are to be obtained from an api
 name_of_the_voter=""
